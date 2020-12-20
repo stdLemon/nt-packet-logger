@@ -15,9 +15,6 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    resizable: false,
-    transparent: true,
-    nodeIntegration: true,
     title: "NtPacketLogger",
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
