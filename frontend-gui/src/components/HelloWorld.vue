@@ -1,6 +1,5 @@
 <template>
-  <v-simple-table height="50vh"
-    >>
+  <v-simple-table height="50vh">
     <template v-slot:default>
       <thead>
         <tr>
@@ -30,6 +29,7 @@ export default {
 
   methods: {},
   mounted() {
+    window.packets = this.packets
     console.log("mounted");
     const server = net.createServer();
 
@@ -43,7 +43,7 @@ export default {
       sock.on("data", (data) => {
         console.log(data);
 
-        const [type, args] = data.toString().split(" ");
+        const [type, ...args] = data.toString().split(" ");
 
         this.packets.push({ type, args });
       });
