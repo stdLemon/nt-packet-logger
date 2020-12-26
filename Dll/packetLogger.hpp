@@ -2,7 +2,7 @@
 
 #include "tools/process.hpp"
 #include "tools/memory.hpp"
-#include "outputDevice/outputDevice.hpp"
+#include "outputDevices/outputDevice.hpp"
 
 #include <detours/detours.h>
 #include <array>

@@ -1,5 +1,5 @@
-#include "outputDevice/namedPipe.hpp"
-#include "outputDevice/console.hpp"
+#include "outputDevices/namedPipe.hpp"
+#include "outputDevices/console.hpp"
 #include "packetLogger.hpp"
 
 #include <Windows.h>
