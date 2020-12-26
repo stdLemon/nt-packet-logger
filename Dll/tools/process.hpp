@@ -2,22 +2,19 @@
 #include <Windows.h>
 #include <psapi.h>
 
-namespace Tools
+namespace Tools::Process
 {
-	namespace Process
+	MODULEINFO GetModuleInfo(HMODULE moduleHandle, HANDLE processHandle = GetCurrentProcess())
 	{
-		MODULEINFO GetModuleInfo(HMODULE moduleHandle, HANDLE processHandle = GetCurrentProcess())
-		{
 
-			MODULEINFO moduleInfo;
-			GetModuleInformation(processHandle, moduleHandle, &moduleInfo, sizeof(moduleInfo));
+		MODULEINFO moduleInfo;
+		GetModuleInformation(processHandle, moduleHandle, &moduleInfo, sizeof(moduleInfo));
 
-			return moduleInfo;
-		}
+		return moduleInfo;
+	}
 
-		MODULEINFO GetModuleInfo(const wchar_t *moduleName = nullptr, HANDLE processHandle = GetCurrentProcess())
-		{
-			return GetModuleInfo(GetModuleHandleW(moduleName), processHandle);
-		}
+	MODULEINFO GetModuleInfo(const wchar_t *moduleName = nullptr, HANDLE processHandle = GetCurrentProcess())
+	{
+		return GetModuleInfo(GetModuleHandleW(moduleName), processHandle);
 	}
 }
