@@ -6,6 +6,7 @@
 #include <thread>
 
 static bool shouldExit = false;
+const wchar_t *pipeName = L"\\\\.\\pipe\\nt_packet_logger";
 
 BOOL WINAPI ConsoleCtrlHandler(DWORD signal)
 {
@@ -30,7 +31,7 @@ void OnAttach(HINSTANCE hInstance)
 	puts((isConsoleHandlerAdded ? "OK" : "!OK"));
 
 	puts("Checking GUI connection");
-	if(namedPipe->Open(L"\\\\.\\pipe\\test_pipe"))
+	if(namedPipe->Open(pipeName))
 	{
 		puts("Packets will be sent to GUI");
 		packetLoggerContext.Start(namedPipe);
