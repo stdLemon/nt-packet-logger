@@ -1,5 +1,5 @@
 <template>
-  <v-simple-table height="100vh">
+  <v-simple-table height="85vh">
     <template v-slot:default>
       <tbody>
         <tr v-for="(packet, index) in packets" :key="index">

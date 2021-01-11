@@ -1,7 +1,19 @@
 <template>
-  <PacketList :packets="packets" />
+  <v-container>
+    <v-row>
+      <v-col>
+        <PacketList :packets="packets" />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-btn @click="ClearPackets" block x-large color="#8f2d24">
+          clear
+        </v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
-
 <script>
 import PacketList from "./PacketList";
 import net from "net";
@@ -11,6 +23,12 @@ export default {
 
   components: {
     PacketList,
+  },
+
+  methods: {
+    ClearPackets() {
+      this.packets = [];
+    },
   },
 
   data() {
