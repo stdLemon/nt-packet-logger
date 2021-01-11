@@ -11,6 +11,15 @@
           clear
         </v-btn>
       </v-col>
+      <v-col>
+        <v-text-field
+          v-model.number="packetLimit"
+          label="Limit"
+          type="number"
+          min="1000"
+          max="10000"
+        ></v-text-field>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -34,7 +43,8 @@ export default {
   data() {
     return {
       packets: [],
-      cp1250Decoder: new TextDecoder("cp1250")
+      cp1250Decoder: new TextDecoder("cp1250"),
+      packetLimit: 5000,
     };
   },
 
@@ -64,6 +74,9 @@ export default {
           const packet = { direction, type, args };
 
           this.packets.push(packet);
+          if (this.packets.length > this.packetLimit) {
+            this.ClearPackets();
+          }
         });
       });
     });
