@@ -1,27 +1,24 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld/>
+      <NtPacketLogger />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
+import NtPacketLogger from "./components/NtPacketLogger";
 export default {
-  name: 'App',
-
+  name: "App",
   components: {
-    HelloWorld,
+    NtPacketLogger,
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
 
 <style>
-  html { overflow-y: hidden }
+html{
+	overflow: hidden;
+}
+
 </style>
